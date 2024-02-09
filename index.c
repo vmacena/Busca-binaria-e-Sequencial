@@ -12,15 +12,15 @@ de ordenação.
 #include <stdlib.h>
 #include <time.h>
 
-// Definindo o tamanho do preenchimento do vetor
+
 #define SIZE 500
 
-// Função para gerar números aleatórios
+
 int randInt(int min, int max) {
     return min + rand() % (max - min + 1);
 }
 
-// Função de ordenação (bubble sort)
+
 void sort(int arr[], int n) {
     int i, j, temp;
     for (i = 0; i < n-1; i++) {
@@ -34,7 +34,7 @@ void sort(int arr[], int n) {
     }
 }
 
-// Função de busca sequencial
+
 int searchSequential(int arr[], int n, int x) {
     int i;
     for (i = 0; i < n; i++) {
@@ -45,7 +45,7 @@ int searchSequential(int arr[], int n, int x) {
     return -1;
 }
 
-// Função de busca binária
+
 int searchBinary(int arr[], int l, int r, int x) {
     if (r >= l) {
         int mid = l + (r - l) / 2;
@@ -64,24 +64,24 @@ int main() {
     int arr[SIZE];
     int i, x, result;
 
-    // Inicializa o gerador de números aleatórios
+    
     srand(time(NULL));
 
-    // Preenche o vetor com números aleatórios
+
     for (i = 0; i < SIZE; i++) {
         arr[i] = randInt(1, 500);
     }
 
-    // Ordena o vetor
+
     sort(arr, SIZE);
 
     printf("\n");
 
-    // Solicita um valor do usuário a ser buscado no vetor
+
     printf("Digite um numero a ser buscado no vetor: ");
     scanf("%d", &x);
 
-    // Busca sequencial
+ 
     result = searchSequential(arr, SIZE, x);
     if (result == -1) {
         printf("%d nao encontrado no vetor (busca sequencial)\n", x);
@@ -89,7 +89,7 @@ int main() {
         printf("%d encontrado na posicao %d (busca sequencial)\n", x, result);
     }
 
-    // Busca binária
+   
     result = searchBinary(arr, 0, SIZE - 1, x);
     if (result == -1) {
         printf("%d nao encontrado no vetor (busca binaria)\n", x);
@@ -97,7 +97,7 @@ int main() {
         printf("%d encontrado na posicao %d (busca binaria)\n", x, result);
     }
 
-    // Imprime o vetor ordenado
+  
     printf("Vetor ordenado:\n");
     for (i = 0; i < SIZE; i++) {
         printf("%d ", arr[i]);
